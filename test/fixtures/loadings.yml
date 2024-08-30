@@ -1,0 +1,39 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  truck: MyString
+  trailer: MyString
+  diff: MyString
+  truckconfig: MyString
+  truckreg: MyString
+  msa_arvd_or_enroute: MyString
+  customer: MyString
+  loaded_msa: MyString
+  disp_msa_date: 2024-08-16
+  days_in_msa: 1
+  final_destination: MyString
+  date_offloaded: 2024-08-16
+  current_truck_stat: MyString
+  allocation_status: MyString
+  allocated_clients: MyString
+  workshop_comments: MyText
+  proj_rev: 9.99
+
+two:
+  truck: MyString
+  trailer: MyString
+  diff: MyString
+  truckconfig: MyString
+  truckreg: MyString
+  msa_arvd_or_enroute: MyString
+  customer: MyString
+  loaded_msa: MyString
+  disp_msa_date: 2024-08-16
+  days_in_msa: 1
+  final_destination: MyString
+  date_offloaded: 2024-08-16
+  current_truck_stat: MyString
+  allocation_status: MyString
+  allocated_clients: MyString
+  workshop_comments: MyText
+  proj_rev: 9.99

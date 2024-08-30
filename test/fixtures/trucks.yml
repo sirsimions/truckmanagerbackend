@@ -1,0 +1,37 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  truck: MyString
+  customer: MyString
+  product: MyString
+  depot: MyString
+  route_name: MyString
+  date_loaded: 2024-08-14
+  mode: MyString
+  loaded_status: MyString
+  location: MyString
+  status_date: 2024-08-14
+  status_time: 2024-08-14 12:49:44
+  status: MyString
+  remarks: MyText
+  distance_covered: 1.5
+  region: MyString
+  country: MyString
+
+two:
+  truck: MyString
+  customer: MyString
+  product: MyString
+  depot: MyString
+  route_name: MyString
+  date_loaded: 2024-08-14
+  mode: MyString
+  loaded_status: MyString
+  location: MyString
+  status_date: 2024-08-14
+  status_time: 2024-08-14 12:49:44
+  status: MyString
+  remarks: MyText
+  distance_covered: 1.5
+  region: MyString
+  country: MyString

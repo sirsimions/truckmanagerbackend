@@ -1,0 +1,2 @@
+class Loading < ApplicationRecord
+end
