@@ -13,6 +13,6 @@
 
 Author.create([
   { name: 'suhara logistics', department: 'transport', password: 'suhara123'},
-  { name: 'suhara', department: 'admin1', password: 'suhara123#' }
+  { name: 'suhara', department: 'admin1', password: 'suhara123#', email: 'okola.simion168@gmail.com' }
 ])
 
