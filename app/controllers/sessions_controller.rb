@@ -6,6 +6,11 @@ class SessionsController < ApplicationController
     if author && author.authenticate(session_params[:password])
       token = issue_token(author)
       puts "Token issued: #{token}"  # Debugging line
+      
+      # Store the user's email in the session
+      session[:user_email] = author.email
+      session[:author_id] = author.id
+
       render json: { author: AuthorSerializer.new(author), jwt: token }
     else
       puts "Authentication failed"  # Debugging line
@@ -30,6 +35,7 @@ class SessionsController < ApplicationController
 
       # Clear the session
       session.delete(:author_id)
+      session.delete(:user_email)  # Clear the stored email from the session
       render json: { message: 'Logged out successfully' }, status: :ok
     else
       render json: { error: 'Not logged in' }, status: :unprocessable_entity

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_08_27_184032) do
+ActiveRecord::Schema.define(version: 2024_09_07_092129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2024_08_27_184032) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "email"
   end
 
   create_table "loadings", force: :cascade do |t|
