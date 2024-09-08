@@ -1,4 +1,12 @@
 class SessionsController < ApplicationController
+
+  require 'firebase_admin_sdk'
+
+  # Initialize Firebase Admin SDK with service account
+service_account = JSON.parse(File.read(Rails.root.join('config', 'suharadelaychater-firebase-adminsdk-59036-aff6b81772.json')))
+
+  firebase = FirebaseAdmin::App.new(service_account)
+
   def create
     author = Author.find_by(name: session_params[:name])
     puts "Author found: #{author.inspect}"  # Debugging line
@@ -74,4 +82,22 @@ class SessionsController < ApplicationController
       @current_author ||= Author.find_by(id: author_id)
     end
   end
+
+  def login
+    user = Author.find_by(email: params[:email]) # Adjust according to your model
+  
+    if user && user.authenticate(params[:password]) # Adjust according to your authentication method
+      # Generate Firebase custom token
+      firebase_token = firebase.auth.create_custom_token(user.id)
+  
+      # Respond with Firebase token and Rails token
+      render json: { firebase_token: firebase_token, jwt: issue_token(user) }
+    else
+      render json: { error: 'Invalid credentials' }, status: :unauthorized
+    end
+  end
+  
+
+
+
 end
