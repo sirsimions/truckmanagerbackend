@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       puts "Token issued: #{token}"  # Debugging line
       
       # Store the user's email in the session
-      session[:user_email] = author.email
+      session[:name] = author.name
       session[:author_id] = author.id
 
       render json: { author: AuthorSerializer.new(author), jwt: token }
