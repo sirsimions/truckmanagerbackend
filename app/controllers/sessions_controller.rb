@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :initialize_firebase
-
+  
   def create
     author = Author.find_by(name: session_params[:name])
     puts "Author found: #{author.inspect}"  # Debugging line
@@ -11,6 +10,7 @@ class SessionsController < ApplicationController
       
       # Store the user's email in the session
       session[:user_email] = author.email
+      session[:user_name] = author.name
       session[:author_id] = author.id
 
       render json: { author: AuthorSerializer.new(author), jwt: token }
@@ -19,7 +19,6 @@ class SessionsController < ApplicationController
       render json: { error: "Incorrect name or password." }, status: :unauthorized
     end
 
-    Rails.logger.info "Reached the create action"
   end
 
   def show
@@ -78,7 +77,9 @@ class SessionsController < ApplicationController
   end
 
   def login
-    user = Author.find_by(email: params[:email]) # Adjust according to your model
+    #user = Author.find_by(email: params[:email]) # Adjust according to your model
+
+    user = Author.find_by(name: params[:name]) # Adjust according to your model
   
     if user && user.authenticate(params[:password]) # Adjust according to your authentication method
       # Generate Firebase custom token
@@ -91,9 +92,5 @@ class SessionsController < ApplicationController
     end
   end
 
-  def initialize_firebase
-    require 'firebase_admin_sdk'
-    service_account = JSON.parse(File.read(Rails.root.join('config', 'suharadelaychater-firebase-adminsdk-59036-aff6b81772.json')))
-    @firebase = FirebaseAdmin::App.new(service_account)
-  end
+  
 end
