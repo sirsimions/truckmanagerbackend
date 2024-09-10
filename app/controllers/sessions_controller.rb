@@ -1,11 +1,5 @@
 class SessionsController < ApplicationController
-
-  require 'firebase_admin_sdk'
-
-  # Initialize Firebase Admin SDK with service account
-service_account = JSON.parse(File.read(Rails.root.join('config', 'suharadelaychater-firebase-adminsdk-59036-aff6b81772.json')))
-
-  firebase = FirebaseAdmin::App.new(service_account)
+  before_action :initialize_firebase
 
   def create
     author = Author.find_by(name: session_params[:name])
@@ -32,7 +26,7 @@ service_account = JSON.parse(File.read(Rails.root.join('config', 'suharadelaycha
     if logged_in?
       render json: current_author
     else
-      render json: {error: "Author is not logged in or could not be found."}, status: :unauthorized
+      render json: { error: "Author is not logged in or could not be found." }, status: :unauthorized
     end
   end
 
@@ -88,7 +82,7 @@ service_account = JSON.parse(File.read(Rails.root.join('config', 'suharadelaycha
   
     if user && user.authenticate(params[:password]) # Adjust according to your authentication method
       # Generate Firebase custom token
-      firebase_token = firebase.auth.create_custom_token(user.id)
+      firebase_token = @firebase.auth.create_custom_token(user.id)
   
       # Respond with Firebase token and Rails token
       render json: { firebase_token: firebase_token, jwt: issue_token(user) }
@@ -96,8 +90,10 @@ service_account = JSON.parse(File.read(Rails.root.join('config', 'suharadelaycha
       render json: { error: 'Invalid credentials' }, status: :unauthorized
     end
   end
-  
 
-
-
+  def initialize_firebase
+    require 'firebase_admin_sdk'
+    service_account = JSON.parse(File.read(Rails.root.join('config', 'suharadelaychater-firebase-adminsdk-59036-aff6b81772.json')))
+    @firebase = FirebaseAdmin::App.new(service_account)
+  end
 end
