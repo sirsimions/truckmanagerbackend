@@ -36,7 +36,7 @@ class SessionsController < ApplicationController
 
       # Clear the session
       session.delete(:author_id)
-      session.delete(:name)
+      session.delete(:user_name)
       session.delete(:user_email)  # Clear the stored email from the session
       render json: { message: 'Logged out successfully' }, status: :ok
     else
