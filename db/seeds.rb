@@ -14,23 +14,23 @@
 Author.create([
   { name: 'suhara logistics', department: 'transport', password: 'suhara123'},
   { name: 'suhara', department: 'admin1', password: 'suhara123#', email: 'okola.simion168@gmail.com' },
-  { name: 'suhara logistics', department: 'transport', password: 'suhara123', email: 'jane@gmail.com' }
-  { name: 'Shadab', department: 'transport', password: 'shadab123', email: 'jane@gmail.com' }
-  { name: 'Nityanand', department: 'transport', password: 'nitya123', email: 'jane@gmail.com' }
-  { name: 'Kuntal', department: 'transport', password: 'kuntal123', email: 'jane@gmail.com' }
-  { name: 'Angila', department: 'transport', password: 'angilal123', email: 'jane@gmail.com' }
-  { name: 'Julia', department: 'transport', password: 'julia123', email: 'jane@gmail.com' }
-  { name: 'Wilson', department: 'transport', password: 'wilson123', email: 'jane@gmail.com' }
-  { name: 'Obadiah', department: 'transport', password: 'obadiah123', email: 'jane@gmail.com' }
-  { name: 'Faith M', department: 'transport', password: 'faithm123', email: 'jane@gmail.com' }
-  { name: 'Bonface', department: 'transport', password: 'bonface123', email: 'jane@gmail.com' }
-  { name: 'Sunil', department: 'transport', password: 'sunil123', email: 'jane@gmail.com' }
-  { name: 'Leo', department: 'transport', password: 'leo123', email: 'jane@gmail.com' }
-  { name: 'Saifali', department: 'transport', password: 'saifali123', email: 'jane@gmail.com' }
-  { name: 'Gatabazi', department: 'transport', password: 'gatabazi123', email: 'jane@gmail.com' }
-  { name: 'Rodney', department: 'transport', password: 'rodney123', email: 'jane@gmail.com' }
-  { name: 'Bidget', department: 'transport', password: 'bidget123', email: 'jane@gmail.com' }
-  { name: 'Veronica', department: 'transport', password: 'veronica123', email: 'jane@gmail.com' }
+  { name: 'suhara logistics', department: 'transport', password: 'suhara123', email: 'jane@gmail.com' },
+  { name: 'Shadab', department: 'transport', password: 'shadab123', email: 'jane@gmail.com' },
+  { name: 'Nityanand', department: 'transport', password: 'nitya123', email: 'jane@gmail.com' },
+  { name: 'Kuntal', department: 'transport', password: 'kuntal123', email: 'jane@gmail.com' },
+  { name: 'Angila', department: 'transport', password: 'angilal123', email: 'jane@gmail.com' },
+  { name: 'Julia', department: 'transport', password: 'julia123', email: 'jane@gmail.com' },
+  { name: 'Wilson', department: 'transport', password: 'wilson123', email: 'jane@gmail.com' },
+  { name: 'Obadiah', department: 'transport', password: 'obadiah123', email: 'jane@gmail.com' },
+  { name: 'Faith M', department: 'transport', password: 'faithm123', email: 'jane@gmail.com' },
+  { name: 'Bonface', department: 'transport', password: 'bonface123', email: 'jane@gmail.com' },
+  { name: 'Sunil', department: 'transport', password: 'sunil123', email: 'jane@gmail.com' },
+  { name: 'Leo', department: 'transport', password: 'leo123', email: 'jane@gmail.com' },
+  { name: 'Saifali', department: 'transport', password: 'saifali123', email: 'jane@gmail.com' },
+  { name: 'Gatabazi', department: 'transport', password: 'gatabazi123', email: 'jane@gmail.com' },
+  { name: 'Rodney', department: 'transport', password: 'rodney123', email: 'jane@gmail.com' },
+  { name: 'Bidget', department: 'transport', password: 'bidget123', email: 'jane@gmail.com' },
+  { name: 'Veronica', department: 'transport', password: 'veronica123', email: 'jane@gmail.com' },
   { name: 'Simion', department: 'transport', password: 'simion123', email: 'jane@gmail.com' }
 
 ])
