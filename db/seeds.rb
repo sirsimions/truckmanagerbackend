@@ -32,6 +32,7 @@ Author.create([
   { name: 'Bidget', department: 'transport', password: 'bidget123', email: 'jane@gmail.com' },
   { name: 'Veronica', department: 'transport', password: 'veronica123', email: 'jane@gmail.com' },
   { name: 'Simion', department: 'transport', password: 'simion123', email: 'jane@gmail.com' }
+  { name: 'Simion', department: 'transport', password: 'Arafat123', email: 'jane@gmail.com' }
 
 ])
 
