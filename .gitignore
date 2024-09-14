@@ -27,3 +27,5 @@
 /config/master.key
 config/suharadelaychater-firebase-adminsdk-59036-aff6b81772.json
 
+# Environment variables
+.env
