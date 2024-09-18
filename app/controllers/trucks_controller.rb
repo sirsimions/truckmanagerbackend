@@ -123,29 +123,30 @@ class TrucksController < ApplicationController
 
   # In your controller (e.g., LoadingsController)
 
-def destroy_by_date
-  if params[:created_at].present?
-    # Parse the date passed from the frontend
-    begin
-      date = Date.parse(params[:created_at])
-    rescue ArgumentError
-      return render json: { error: 'Invalid date format' }, status: :unprocessable_entity
-    end
-
-    # Find all files (loadings) created on this date
-    loadings_to_delete = Truck.where(created_at: date.all_day)
-
-    if loadings_to_delete.exists?
-      # Destroy all files matching the date
-      loadings_to_delete.destroy_all
-      render json: { message: "Files created on #{date} have been deleted." }, status: :ok
+  def destroy_by_date
+    if params[:created_at].present?
+      begin
+        date = Date.parse(params[:created_at])
+      rescue ArgumentError
+        return render json: { error: 'Invalid date format' }, status: :unprocessable_entity
+      end
+  
+      loadings_to_delete = Loading.where(created_at: date.all_day)
+  
+      if loadings_to_delete.exists?
+        loadings_to_delete.destroy_all
+        # Return a valid JSON response on successful deletion
+        render json: { message: "Files created on #{date} have been deleted." }, status: :ok
+      else
+        # Return a valid JSON response when no files are found
+        render json: { message: "No files found for the given date." }, status: :not_found
+      end
     else
-      render json: { message: "No files found for the given date." }, status: :not_found
+      # Return an error message in JSON format if the date is not provided
+      render json: { error: "Date not provided" }, status: :unprocessable_entity
     end
-  else
-    render json: { error: "Date not provided" }, status: :unprocessable_entity
   end
-end
+  
 
 
 
