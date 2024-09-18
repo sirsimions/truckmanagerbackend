@@ -120,6 +120,36 @@ class TrucksController < ApplicationController
     end
   end
 
+
+  # In your controller (e.g., LoadingsController)
+
+def destroy_by_date
+  if params[:created_at].present?
+    # Parse the date passed from the frontend
+    begin
+      date = Date.parse(params[:created_at])
+    rescue ArgumentError
+      return render json: { error: 'Invalid date format' }, status: :unprocessable_entity
+    end
+
+    # Find all files (loadings) created on this date
+    loadings_to_delete = Truck.where(created_at: date.all_day)
+
+    if loadings_to_delete.exists?
+      # Destroy all files matching the date
+      loadings_to_delete.destroy_all
+      render json: { message: "Files created on #{date} have been deleted." }, status: :ok
+    else
+      render json: { message: "No files found for the given date." }, status: :not_found
+    end
+  else
+    render json: { error: "Date not provided" }, status: :unprocessable_entity
+  end
+end
+
+
+
+
   private
 
   def truck_params
